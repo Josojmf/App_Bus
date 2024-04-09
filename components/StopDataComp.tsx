@@ -12,13 +12,14 @@ import {
 
 const StopDataComp: FunctionComponent<{ Stop: ArriveType }> = (props) => {
   const data_received: ArriveType = props.Stop;
+  const tiempo_espera_minutos = parseInt(data_received.estimateArrive) / 60;
   return (
     <div className="Stop">
       <h1>{data_received.stop}</h1>
       <div>
         <p>Numero de Parada:{data_received.stop}</p>
         <p>Lines:{data_received.line}</p>
-        <p>Tiempo Espera:{data_received.estimateArrive}</p> 
+        <p>Tiempo Espera:{tiempo_espera_minutos}</p> 
         <p> Distancia: {data_received.DistanceBus} metros </p>
         <p>Destino:{data_received.destination}</p>
       </div>
