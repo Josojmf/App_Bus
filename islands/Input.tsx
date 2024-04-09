@@ -3,7 +3,7 @@ const InputFormSearch: FunctionComponent = () => {
   return (
     <form action="/search" method="get" className="SearchStop">
       <input type="text" placeholder="Stop Number" name="stop"></input>
-      <button type="submit">Search</button>
+      <button type="submit">Search Stop</button>
     </form>
   );
 };

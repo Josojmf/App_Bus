@@ -5,6 +5,7 @@
 import * as $StopLinesArrival from "./routes/StopLinesArrival.tsx";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $_layout from "./routes/_layout.tsx";
 import * as $calendar from "./routes/calendar.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $search from "./routes/search.tsx";
@@ -18,6 +19,7 @@ const manifest = {
     "./routes/StopLinesArrival.tsx": $StopLinesArrival,
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/_layout.tsx": $_layout,
     "./routes/calendar.tsx": $calendar,
     "./routes/index.tsx": $index,
     "./routes/search.tsx": $search,

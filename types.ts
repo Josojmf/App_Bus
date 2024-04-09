@@ -42,7 +42,49 @@ export type LoginResponse = {
       dataline:Dataline;
   
   }
+  export type StopLineArrivalData = {
+    Arrive:ArriveType
+
+
+
+  }
 
   export type StopData = {
-      stops: Stop[];
+    code: string;
+    description: string;
+      data: StopLineArrivalData;
   }
+
+  export type StopLineArrivalResponse = {
+    code:string;
+    description:string;
+    datetime:string;
+    data:data;
+  }
+  export type data= {
+    StopLines:Stop[];
+    Data:Data;
+    Direction:string;
+    Description:string;
+    Label:string;
+  }
+  export type ArriveType={
+    DistanceBus:number;
+    geometry:Geometry;
+    bus:string;
+    destination:string;
+    stop:string;
+    positionTypeBus:string;
+    isHead:string;
+    line:string;
+    estimateArrive:string;
+
+    
+  }
+  export type formatedResponse = {
+    Arive:ArriveType;
+    StopInfo:Stop;
+    ExtraInfo:Data;
+    Incident:Data;
+
+  } ;

@@ -12,22 +12,27 @@ export const handler: Handlers = {
     const stop = url.searchParams.get("stop") || "5844";
  
     const APIURLDATASTOP =
-      `https://openapi.emtmadrid.es/v1/transport/busemtmad/stops/5844/arrives/`;
-      const accessToken = "20cf9107-ea42-49a1-b254-c20a05a39d60";
-    if (accessToken) {
-      const responseDataStop = await axios.get(APIURLDATASTOP, {
-        headers: { accessToken },
-      });
-      const responseData = responseDataStop.data.data[0] as StopData;
-      console.log("Inside Search  ");
-      console.log(responseData);
-      return ctx.render(responseData.stops);
-    } 
-    else {
-      return ctx.render("Failed To Login");
-    }
-  },
-};
+      `https://openapi.emtmadrid.es/v1/transport/busemtmad/stops/${stop}/arrives`;
+    const accessToken = "20cf9107-ea42-49a1-b254-c20a05a39d60";
+    const body = {
+      "statistics": "N",
+      "cultureInfo": "EN",
+      "Text_StopRequired_YN": "Y",
+      "Text_EstimationsRequired_YN": "Y",
+      "Text_IncidencesRequired_YN": "Y",
+      "DateTime_Referenced_Incidencies_YYYYMMDD": "20180823",
+    };
+    const responseDataStop = fetch(APIURLDATASTOP, {
+      method: "POST",
+      headers: new Headers({
+        "accessToken": accessToken,
+        "content-type": "application/json",
+      }),
+      body: JSON.stringify(body),
+    }) as unknown as StopData;
+    return ctx.render(responseDataStop);
+  }
+} 
 const Page = (props: PageProps | undefined) => {
   if (!props) {
     return <div>Loading...</div>;

@@ -16,12 +16,9 @@ export type Data = {
 export default function Home() {
   return (
     <div>
-      <h1>Home</h1>
+      
       <Input></Input>
       <InputFormSearch></InputFormSearch>
-      <a href="/search">Search</a>
-      <br />
-      <a href="/StopLinesArrival">StopLinesArrival</a>
     </div>
   );
 }

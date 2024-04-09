@@ -1,36 +1,50 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import axios from "npm:axios";
-import { Stop, StopData } from "../types.ts";
-import StopDataComponent from "../components/StopData.tsx";
-import InputForm from "../islands/Input.tsx";
+import { ArriveType, formatedResponse, Stop, StopData } from "../types.ts";
 
+import InputFormSearch from "../islands/InputLineArrival.tsx";
+import { StopLineArrivalResponse } from "../types.ts";
+import StopDataComp from "../components/StopDataComp.tsx";
 
 export const handler: Handlers = {
-  POST: async (req: Request, ctx: FreshContext) => {
+  GET: async (req: Request, ctx: FreshContext) => {
     const url = new URL(req.url);
     const stop = url.searchParams.get("stop") || "5844";
- 
-    const APIURLLogin =
-      "https://openapi.emtmadrid.es/v1/mobilitylabs/user/login/";
     const APIURLDATASTOP =
-      `https://openapi.emtmadrid.es/v1/transport/busemtmad/stops/${stop}/arrives`;  
+      `https://openapi.emtmadrid.es/v1/transport/busemtmad/stops/${stop}/arrives`;
     const accessToken = "20cf9107-ea42-49a1-b254-c20a05a39d60";
-    console.log(accessToken);
-      const responseDataStop = await axios.post(APIURLDATASTOP, {
-        headers: { accessToken },
-      });
-      const responseData = responseDataStop.data.data[0] as StopData;
-      return ctx.render(responseData);
-    } 
-  }
-const Page = (props: PageProps | undefined) => {
+    const body = {
+      "statistics": "N",
+      "cultureInfo": "EN",
+      "Text_StopRequired_YN": "Y",
+      "Text_EstimationsRequired_YN": "Y",
+      "Text_IncidencesRequired_YN": "Y",
+      "DateTime_Referenced_Incidencies_YYYYMMDD": "20180823",
+    };
+    const responseDataStop = await fetch(APIURLDATASTOP, {
+      method: "POST",
+      redirect: "follow",
+      headers: new Headers({
+        "accessToken": accessToken,
+      }),
+      body: JSON.stringify(body),
+    });
+    const response = await responseDataStop.json();
+    const Arrive = response.data[0].Arrive as ArriveType;
+    return ctx.render(Arrive);
+  },
+};
+const Page = (props: PageProps<ArriveType[]> | undefined) => {
+  const data = props!.data[0] as ArriveType;
+  console.log(data.bus);
   if (!props) {
     return <div>Loading...</div>;
   } else {
-    console.log(props)
     return (
       <div>
-        <InputForm />
+        <InputFormSearch />
+        {data.stop}
+        <StopDataComp Stop={data} />
       </div>
     );
   }
