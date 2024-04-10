@@ -2,7 +2,6 @@ import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import axios from "npm:axios";
 import { Stop, StopData } from "../types.ts";
 import StopDataComponent from "../components/StopData.tsx";
-import InputForm from "../islands/Input.tsx";
 import InputFormSearch from "../islands/InputLineArrival.tsx";
 
 export const handler: Handlers = {
