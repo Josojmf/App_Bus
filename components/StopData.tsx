@@ -1,6 +1,7 @@
 import { FunctionComponent } from "https://esm.sh/v128/preact@10.19.2/src/index.js";
 import { type PageProps } from "$fresh/server.ts";
-import { StopData,Stop, StopResponse,Geometry,datalineContent,Dataline } from "../types.ts";
+import { Stop } from "../types.ts";
+
 
 const StopDataComponent: FunctionComponent<PageProps> = (props) => {
     const data_received: Stop = props.data[0];

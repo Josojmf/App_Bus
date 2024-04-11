@@ -1,10 +1,10 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import axios from "npm:axios";
-import { ArriveType, formatedResponse, Stop, StopData } from "../types.ts";
+
 
 import InputFormSearch from "../islands/InputLineArrival.tsx";
-import { StopLineArrivalResponse } from "../types.ts";
 import StopDataComp from "../components/StopDataComp.tsx";
+import { ArriveType } from "../types.ts";
 
 export const handler: Handlers = {
   GET: async (req: Request, ctx: FreshContext) => {

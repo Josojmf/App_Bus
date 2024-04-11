@@ -1,7 +1,6 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import axios from "npm:axios";
 import { Stop, StopData } from "../types.ts";
-import StopDataComponent from "../components/StopData.tsx";
 import InputForm from "../islands/Input.tsx";
 
 
@@ -24,7 +23,7 @@ export const handler: Handlers = {
         headers: { accessToken },
       });
       const responseData = responseDataStop.data.data[0] as StopData;
-      return ctx.render(responseData.stops);
+      return ctx.render(responseData);
     } else {
       return ctx.render("Failed To Login");
     }
