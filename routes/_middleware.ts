@@ -9,11 +9,8 @@ interface State {
 export async function handler(req: Request, ctx: FreshContext<State>) {
   ctx.state.data = "myData";
   const redisPassword="lEaEvKji0kamNnlZAaq4fRbXKihDzaEP";
-  const redis = createLazyClient({ hostname: "redis-16496.c269.eu-west-1-3.ec2.cloud.redislabs.com", port: 16496, password: redisAPIKEY });
-  await redis.set("myData", "myData");
-  await redis.get("myData");
+  const redis = createLazyClient({ hostname: "redis-16496.c269.eu-west-1-3.ec2.cloud.redislabs.com", port: 16496, password: redisPassword });
   await redis.close();
-  console.log(ctx.state.data);
-  return ctx.render({ data: ctx.state.data });
+  return ctx.render({ text: "Hello World"});
 
 }
