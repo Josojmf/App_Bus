@@ -30,8 +30,17 @@ export type LoginResponse = {
       stopTime: string;
       dayType: string;
   }
-  export type Dataline = {
-      dataline: datalineContent[];
+  export type dataLine = {
+    line: string;
+    label: string;
+    direction: string;
+    maxFreq: string;
+    minFreq: string;
+    headerA: string;
+    headerB: string;
+    startTime: string;
+    stopTime: string;
+    dayType: string;
   }
   export type Stop = {
       stop: string;
@@ -39,7 +48,7 @@ export type LoginResponse = {
       postalAddress: string;
       geometry:Geometry;
       pmv: string;
-      dataline:Dataline;
+      dataLine: dataLine[];
   
   }
   export type StopLineArrivalData = {
@@ -88,3 +97,7 @@ export type LoginResponse = {
     Incident:Data;
 
   } ;
+
+  export type data_received = {
+    stops:Stop[];
+  }

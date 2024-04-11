@@ -1,7 +1,7 @@
 .Stop {
-  position: absolute;
-  top: 25%;
-  left: 40%;
+  position: relative;
+  top: 0%;
+  left: 2%;
   background-color: #0015ff;
   color: white;
   border: none;
@@ -110,4 +110,16 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+}
+.ArrivalsContainer{
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  max-height: 50vh;
+  height: 40vh;
+  width: 16vw;
+  overflow: scroll;
+  top: 20%;
+  left: 39.2%;
+  background-color: #0015ff;
 }

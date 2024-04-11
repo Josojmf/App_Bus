@@ -1,27 +1,44 @@
 import { FunctionComponent } from "https://esm.sh/v128/preact@10.19.2/src/index.js";
 import { type PageProps } from "$fresh/server.ts";
-import {
-  ArriveType,
-  Dataline,
-  datalineContent,
-  Geometry,
-  Stop,
-  StopData,
-  StopResponse,
-} from "../types.ts";
+import { ArriveType, Stop } from "../types.ts";
 
-const StopDataComp: FunctionComponent<{ Stop: ArriveType }> = (props) => {
-  const data_received: ArriveType = props.Stop;
-  const tiempo_espera_minutos = parseInt(data_received.estimateArrive) / 60;
+const StopDataComp: FunctionComponent<{ Stop: Stop }> = (props) => {
+  const data_received: Stop = props.Stop;
+  type dataLine = {
+    line: string;
+    label: string;
+    direction: string;
+    maxFreq: string;
+    minFreq: string;
+    headerA: string;
+    headerB: string;
+    startTime: string;
+    stopTime: string;
+    dayType: string;
+  };
+  const dataLines = data_received.dataLine;
   return (
     <div className="Stop">
       <h1>{data_received.stop}</h1>
       <div>
-        <p>Numero de Parada:{data_received.stop}</p>
-        <p>Lines:{data_received.line}</p>
-        <p>Tiempo Espera:{Math.round(tiempo_espera_minutos)} Minutos</p> 
-        <p> Distancia: {data_received.DistanceBus} metros </p>
-        <p>Destino:{data_received.destination}</p>
+        <p>Direccion:{data_received.postalAddress}</p>
+        <p>Lineas:</p>
+        <div>
+          {dataLines.map((line) => (
+            <div>
+              <p>Linea:{line.line}</p>
+              <p>Label:{line.label}</p>
+              <p>Direccion:{line.direction}</p>
+              <p>Frecuencia Maxima:{line.maxFreq}</p>
+              <p>Frecuencia Minima:{line.minFreq}</p>
+              <p>HeaderA:{line.headerA}</p>
+              <p>HeaderB:{line.headerB}</p>
+              <p>Inicio:{line.startTime}</p>
+              <p>Fin:{line.stopTime}</p>
+              <p>Tipo de Dia:{line.dayType}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

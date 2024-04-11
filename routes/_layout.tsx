@@ -7,11 +7,11 @@ const layout = (props: PageProps) => {
       <body>
         <h1 className="MainTitle">EMT</h1>
         <div className="MainLinks">
-          <a href="/search" className="Link">Search</a>
+          <a href="/Stop" className="Link">Información Paradas</a>
 
           <br />
           <div>
-            <a href="/StopLinesArrival" className="Link">StopLinesArrival</a>
+            <a href="/StopLinesArrival" className="Link">Tiempos de llegada</a>
           </div>
         </div>
         <Component />
