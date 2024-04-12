@@ -4,15 +4,13 @@ import { Stop, ArriveType } from "../types.ts";
 const StopDataComp: FunctionComponent<{ Stop: ArriveType }> = (props) => {
   const data_received: ArriveType = props.Stop;
   return (
-    <div className="Stop">
+    <div className="StopInfo">
       <div>
-        <p>Numero de Parada:{data_received.stop}</p>
-        <p>Nombre:{data_received.destination}</p>
-        <p>Linea:{data_received.line}</p>
-        <p>Bus:{data_received.bus}</p>
-        <p>Distancia:{data_received.DistanceBus}</p>
-        <p>Estimacion de Llegada:{Math.round(parseInt((data_received.estimateArrive))/60) } minutos</p>
-
+        <h1>{data_received.line}</h1>
+        <div className="ArriveTime">
+          <p>Destination: {data_received.destination}</p>
+          <p>Tiempo: {Math.round(parseInt(data_received.estimateArrive)/60)}Minutos</p>
+        </div>
       </div>
     </div>
   );

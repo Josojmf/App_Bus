@@ -1,7 +1,7 @@
 .Stop {
-  position: relative;
-  top: 0%;
-  left: 2%;
+  position: absolute;
+  top: 20%;
+  left: 45%;
   background-color: #0015ff;
   color: white;
   border: none;
@@ -12,13 +12,32 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  max-height: 60vh;
+  width: 10vw;
+  overflow: scroll;
+}
+.StopInfo {
+  position: relative;
+  top: 0%;
+  left: 0%;
+  border: 10px solid #ffffff;
+  background-color: #0015ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  margin: 4px 2px;
 }
 
 
 .SearchStop {
   position: absolute;
   top: 15%;
-  left: 39%;
+  left: 42%;
   background-color: #0015ff;
   color: white;
   border: none;
@@ -112,14 +131,12 @@
   cursor: pointer;
 }
 .ArrivalsContainer{
-  align-items: center;
-  justify-content: center;
   position: absolute;
   max-height: 50vh;
   height: 40vh;
   width: 16vw;
   overflow: scroll;
   top: 20%;
-  left: 39.2%;
+  left: 42%;
   background-color: #0015ff;
 }

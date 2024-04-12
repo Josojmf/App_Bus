@@ -34,7 +34,6 @@ export const handler: Handlers = {
   },
 };
 const Page = (props: PageProps<ArriveType[]> | undefined) => {
-  const data = props!.data[0] as ArriveType;
   const dataTest = props!.data as ArriveType[];
   if (!props) {
     return <div>Loading...</div>;
@@ -44,7 +43,8 @@ const Page = (props: PageProps<ArriveType[]> | undefined) => {
         <InputFormSearch />
 
         <div className="ArrivalsContainer">
-          {dataTest.map((data) => (
+          {dataTest.map((data:ArriveType) => (
+            
             <Arrivals Stop={data} />
           ))}
         </div>
