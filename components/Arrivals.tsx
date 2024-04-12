@@ -10,6 +10,7 @@ const StopDataComp: FunctionComponent<{ Stop: ArriveType }> = (props) => {
         <div className="ArriveTime">
           <p>Destination: {data_received.destination}</p>
           <p>Tiempo: {Math.round(parseInt(data_received.estimateArrive)/60)}Minutos</p>
+          <p> Distancia: {data_received.DistanceBus} Metros</p>
         </div>
       </div>
     </div>
