@@ -101,3 +101,9 @@ export type LoginResponse = {
   export type data_received = {
     stops:Stop[];
   }
+  export type UserDataType = {
+    name: string;
+    surname: string;
+    email: string;
+    stops: string[];
+  };
