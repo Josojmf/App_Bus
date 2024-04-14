@@ -3,7 +3,7 @@ import { createGitHubOAuthConfig, createHelpers } from "jsr:@deno/kv-oauth";
 import type { Plugin } from "$fresh/server.ts";
 
 const { signIn, handleCallback, signOut, getSessionId } = createHelpers(
-  createGitHubOAuthConfig(),
+  createGitHubOAuthConfig( ),
 );
 
 export default {
