@@ -107,3 +107,4 @@ export type LoginResponse = {
     email: string;
     stops: string[];
   };
+  

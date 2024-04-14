@@ -10,11 +10,13 @@ import * as $_layout from "./routes/_layout.tsx";
 import * as $_middleware from "./routes/_middleware.tsx";
 import * as $calendar from "./routes/calendar.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $login from "./routes/login.tsx";
+import * as $loginresult from "./routes/loginresult.tsx";
 import * as $search from "./routes/search.tsx";
 import * as $searchStopLinesArrival from "./routes/searchStopLinesArrival.tsx";
+import * as $signin from "./routes/signin.tsx";
 import * as $Input from "./islands/Input.tsx";
 import * as $InputLineArrival from "./islands/InputLineArrival.tsx";
+import * as $InputLogin from "./islands/InputLogin.tsx";
 import * as $Login from "./islands/Login.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
@@ -28,13 +30,15 @@ const manifest = {
     "./routes/_middleware.tsx": $_middleware,
     "./routes/calendar.tsx": $calendar,
     "./routes/index.tsx": $index,
-    "./routes/login.tsx": $login,
+    "./routes/loginresult.tsx": $loginresult,
     "./routes/search.tsx": $search,
     "./routes/searchStopLinesArrival.tsx": $searchStopLinesArrival,
+    "./routes/signin.tsx": $signin,
   },
   islands: {
     "./islands/Input.tsx": $Input,
     "./islands/InputLineArrival.tsx": $InputLineArrival,
+    "./islands/InputLogin.tsx": $InputLogin,
     "./islands/Login.tsx": $Login,
   },
   baseUrl: import.meta.url,

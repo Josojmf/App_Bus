@@ -11,7 +11,7 @@ export const handler: Handlers = {
     const url = new URL(req.url);
     const stop = url.searchParams.get("stop") || "5844";
     const APIURLDATASTOP = `https://openapi.emtmadrid.es/v1/transport/busemtmad/stops/${stop}/arrives`;
-    const accessToken = "20cf9107-ea42-49a1-b254-c20a05a39d60";
+    const accessToken = Deno.env.get("ACCESSTOKEN") || "";
     const body = {
       statistics: "N",
       cultureInfo: "EN",

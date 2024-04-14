@@ -14,7 +14,7 @@ const layout = (props: PageProps) => {
             <a href="/StopLinesArrival" className="Link">Tiempos de llegada</a>
           </div>
           <div>
-            <a href="/loginPage" className="Link">Login</a>
+            <a href="/signin" className="Link">SignIn</a>
           </div>
         </div>
         <Component />

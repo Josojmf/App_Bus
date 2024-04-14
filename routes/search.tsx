@@ -1,3 +1,4 @@
+// deno-lint-ignore-file
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import axios from "npm:axios";
 import { Stop, StopData } from "../types.ts";
@@ -10,9 +11,11 @@ export const handler: Handlers = {
   GET: async (req: Request, ctx: FreshContext) => {
     const url = new URL(req.url);
     const stop = url.searchParams.get("stop") || "5844";
+    const email =Deno.env.get("APIEMAIL") ;
+    const password = Deno.env.get("APIPASSWORD");
     const headers = {
-      email: "joso.jmf@gmail.com",
-      password: "lyoko3110J",
+      email:  Deno.env.get("APIEMAIL"),
+      password: Deno.env.get("APIPASSWORD"),
     };
     const APIURLLogin =
       "https://openapi.emtmadrid.es/v1/mobilitylabs/user/login/";
